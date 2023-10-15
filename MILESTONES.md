@@ -12,3 +12,4 @@
 - [ ] use json files for loading models
 - [ ] add arguments to choice json files to load
 - [ ] add arguments to choice chat type (console, web)
+- [ ] check if automatic tests are necessary
