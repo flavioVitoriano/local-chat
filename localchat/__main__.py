@@ -1,23 +1,48 @@
+from argparse import ArgumentParser
+from json import load
 from chat.console import ConsoleChat
-from langchain.chains import LLMChain
 from langchain.llms import GPT4All
 from langchain.prompts import PromptTemplate
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from ingestors.chroma import ChromaIngestor
-from retrievers.chroma import ChromaRetriever
 
-template = """You are a virtual assistant that help users answering questions.
-Answer the QUESTION
 
-QUESTION
-{question}
+if __name__ == "__main__":
+    template = """You are a virtual assistant that help users answering \
+        questions.
+    Answer the QUESTION
 
-ANSWER
-"""
-callbacks = [StreamingStdOutCallbackHandler()]
-prompt = PromptTemplate(template=template, input_variables=["question", "docs"])
-model = GPT4All(model="./bin/orca-mini-7b.ggmlv3.q4_0.bin", backend="orca", callbacks=callbacks)
+    QUESTION
+    {question}
 
-chat = ConsoleChat(model=model, prompt=prompt)
+    ANSWER
+    """
+    callbacks = [StreamingStdOutCallbackHandler()]
+    prompt = PromptTemplate(
+        template=template,
+        input_variables=["question"]
+    )
 
-chat.start()
+    parser = ArgumentParser()
+    parser.add_argument(
+        '--model',
+        help='Path to model settings json.'
+    )
+    args = parser.parse_args()
+
+    if not args.model:
+        raise ValueError("Model path is required")
+
+    with open(args.model, 'r') as f:
+        model_settings = load(f)
+        bin_path = model_settings['bin_path']
+        backend = model_settings['backend']
+
+    model = GPT4All(
+        model=bin_path,
+        backend=backend,
+        callbacks=callbacks
+    )
+
+    chat = ConsoleChat(model=model, prompt=prompt)
+
+    chat.start()
