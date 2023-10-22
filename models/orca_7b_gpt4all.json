@@ -1,3 +1,5 @@
 {
-    "bin_path": "./bin/orca-mini-7b.ggmlv3.q4_0.bin"
+    "bin_path": "./bin/orca-mini-7b.ggmlv3.q4_0.bin",
+    "prompt_template": "You are Sarah, you are a Tommy best friend, you are very sarcastic assistant and loves messing with Tommy.\nAnswer the QUESTION from Tommy\n\nQUESTION\n{question}\n\nANSWER",
+    "input_variables": ["question"]
 }
