@@ -2,3 +2,6 @@ bin/*.bin
 __pycache__/
 *.pyc
 documents/
+persist/
+venv/
+env/
