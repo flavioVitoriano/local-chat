@@ -13,3 +13,5 @@
 - [ ] add arguments to choice json files to load
 - [ ] add arguments to choice chat type (console, web)
 - [ ] check if automatic tests are necessary
+- [ ] add pre commit hooks for validating code
+- [ ] add requirements-dev and add some code formatter defaults.
