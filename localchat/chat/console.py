@@ -1,9 +1,5 @@
 from .base import BaseChat
 from langchain.chains import LLMChain
-from langchain.llms import GPT4All, BaseLLM
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from langchain.prompts import PromptTemplate
-
 
 
 class ConsoleChat(BaseChat):
@@ -11,5 +7,9 @@ class ConsoleChat(BaseChat):
         chain = LLMChain(prompt=self._prompt, llm=self._model)
 
         while True:
-            question = input("\n\nSay something: ")
-            chain.run(question)
+            question = input("\n\nUser input: ")
+            docs = self._chroma.similarity_search(question, k=2)
+            docs_content = "\n".join([doc.page_content for doc in docs])
+
+            result = chain.predict(question=question, documents=docs_content)
+            print(result)
