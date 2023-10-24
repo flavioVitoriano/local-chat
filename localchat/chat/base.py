@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 from langchain.llms import BaseLLM
 from langchain.prompts import PromptTemplate
 from langchain.schema.embeddings import Embeddings

@@ -1,5 +1,6 @@
-from .base import BaseChat
 from langchain.chains import LLMChain
+
+from .base import BaseChat
 
 
 class ConsoleChat(BaseChat):
