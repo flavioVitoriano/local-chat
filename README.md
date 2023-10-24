@@ -27,3 +27,7 @@ python localchat --model models/YOUR_MODEL.json
 
 ## How to contribute
 Feel free to add an issue or make a pull request.
+
+
+## Next steps
+See `MILESTONES.md` for the next aimed steps todo.
