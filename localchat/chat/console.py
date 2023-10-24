@@ -11,5 +11,4 @@ class ConsoleChat(BaseChat):
             docs = self._chroma.similarity_search(question, k=2)
             docs_content = "\n".join([doc.page_content for doc in docs])
 
-            result = chain.predict(question=question, documents=docs_content)
-            print(result)
+            chain.predict(question=question, documents=docs_content)
