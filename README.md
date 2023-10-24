@@ -6,6 +6,8 @@ The project uses llama.cpp to load the models and gpt4all to load the embedding 
 
 
 ## How to run
+- First, you need to download a .gguf model, download and put inside bin folder.
+
 - Install dependencies
 ```sh
 pip install -r requirements.txt
