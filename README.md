@@ -30,4 +30,4 @@ Feel free to add an issue or make a pull request.
 
 
 ## Next steps
-See `MILESTONES.md` for the next aimed steps todo.
+See `MILESTONES.md` for the next aimed steps to be done.
