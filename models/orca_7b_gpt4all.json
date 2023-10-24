@@ -1,4 +1,0 @@
-{
-    "bin_path": "./bin/orca-mini-7b.ggmlv3.q4_0.bin",
-    "prompt_template": "INSTRUCTION\nYou are an virtual assistant that help user with his questions\nAnswer the QUESTION based on the CONTEXT\n\nCONTEXT\n{documents}\n\nQUESTION\n{question}\n\nANSWER\n"
-}
