@@ -2,7 +2,6 @@
 
 - [x] chat with llms local (console)
 - [x] add embeddings support (chroma)
-- [ ] see if it is necessary to add alternatives to chroma
 - [ ] chat with llms local (webui)
 - [ ] add embeddings support (webui)
 
