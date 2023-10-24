@@ -13,3 +13,4 @@
 - [ ] check if automatic tests are necessary
 - [ ] add pre commit hooks for validating code
 - [x] add requirements-dev and add some code formatter defaults.
+- [ ] add more extensions support (pdf, md, py)
