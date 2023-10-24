@@ -17,7 +17,7 @@ class ChatModel(BaseModel):
     documents_directory_path: str
     prompt_template: str
     input_variables: List[str] = ["question", "documents"]
-    model_args: ModelArgs
+    llama_args: ModelArgs
 
     @field_validator("chat_model_path")
     @classmethod

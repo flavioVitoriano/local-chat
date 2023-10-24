@@ -29,7 +29,7 @@ if __name__ == "__main__":
     )
     callbacks = [StreamingStdOutCallbackHandler()]
     model = LlamaCpp(
-        **model_data.model_args.model_dump(),
+        **model_data.llama_args.model_dump(),
         model_path=model_data.chat_model_path,
         callbacks=callbacks,
         verbose=False

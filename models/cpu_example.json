@@ -2,7 +2,7 @@
     "chat_model_path": "./bin/vicuna-7b-v1.5.Q4_K_M.gguf",
     "persist_directory_path": "./persist/silent_hill",
     "documents_directory_path": "./documents/silent_hill",
-    "model_args": {
+    "llama_args": {
         "temperature": 0.1,
         "max_tokens": 2000,
         "top_p": 1
