@@ -2,7 +2,7 @@
 
 ## about
 This repository aims to reproduce an LLM chat experience.
-The project uses llama.cpp to load the models and gpt4all to generate the embedding models.
+The project uses llama.cpp to load the models and gpt4all to load the embedding models.
 
 
 ## How to run
