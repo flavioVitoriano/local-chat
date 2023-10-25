@@ -14,3 +14,4 @@
 - [ ] add pre commit hooks for validating code
 - [x] add requirements-dev and add some code formatter defaults.
 - [ ] add more extensions support (pdf, md, py)
+- [ ] put prompts on txt files instead of json
