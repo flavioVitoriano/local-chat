@@ -7,7 +7,8 @@
         "max_tokens": 2000,
         "top_p": 1,
         "n_gpu_layers": 40,
-        "n_batch": 512
+        "n_batch": 1000,
+        "n_ctx": 1000
     },
-    "prompt_template": "INSTRUCTION\nYou are an virtual assistant that help user with his questions\nAnswer the QUESTION based on the CONTEXT\n\nCONTEXT\n{documents}\n\nQUESTION\n{question}\n\nANSWER\n"
+    "prompt_template_file": "./prompts/general.txt"
 }

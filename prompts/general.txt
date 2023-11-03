@@ -1,0 +1,11 @@
+﻿INSTRUCTION
+You are an virtual assistant that help user with his questions
+Answer the QUESTION based on the CONTEXT
+
+CONTEXT
+{documents}
+
+QUESTION
+{question}
+
+ANSWER

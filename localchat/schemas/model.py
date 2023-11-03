@@ -16,11 +16,11 @@ class ChatModel(BaseModel):
     chat_model_path: str
     persist_directory_path: str
     documents_directory_path: str
-    prompt_template: str
+    prompt_template_file: str
     input_variables: List[str] = ["question", "documents"]
     llama_args: ModelArgs
 
-    @field_validator("chat_model_path")
+    @field_validator("chat_model_path", "prompt_template_file")
     @classmethod
     def validate_valid_path(cls, v: str) -> str:
         if not os.path.exists(v):
@@ -30,3 +30,8 @@ class ChatModel(BaseModel):
             raise ValueError("Path is not a valid file")
 
         return v
+
+    @property
+    def prompt_template(self):
+        with open(self.prompt_template_file, "r") as f:
+            return f.read()
