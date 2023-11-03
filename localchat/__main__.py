@@ -15,7 +15,7 @@ if __name__ == "__main__":
     parser.add_argument("--model", required=True, help="Path to model settings json.")
     args = parser.parse_args()
 
-    with open(args.model, "r") as f:
+    with open(args.model, "r", encoding="utf-8-sig") as f:
         model_arguments = load(f)
 
         try:

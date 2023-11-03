@@ -4,11 +4,12 @@ from typing import List, Optional
 
 
 class ModelArgs(BaseModel):
-    temperature: float
-    top_p: float
-    max_tokens: int
-    n_gpu_layers: Optional[int]
-    n_batch: Optional[int]
+    temperature: float = 0.5
+    top_p: float = 0.9
+    max_tokens: int = 500
+    n_gpu_layers: Optional[int] = 0
+    n_batch: Optional[int] = 8
+    n_ctx: int = 512
 
 
 class ChatModel(BaseModel):

@@ -1,5 +1,6 @@
 from .base import BaseChat
 from langchain.chains import LLMChain
+import logging
 
 
 class ConsoleChat(BaseChat):
@@ -7,7 +8,7 @@ class ConsoleChat(BaseChat):
         chain = LLMChain(prompt=self._prompt, llm=self._model)
 
         while True:
-            question = input("\n\nUser input: ")
+            question = input("\n\n>> ")
             docs = self._chroma.similarity_search(question, k=2)
             docs_content = "\n".join([doc.page_content for doc in docs])
 

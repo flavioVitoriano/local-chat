@@ -1,19 +1,51 @@
 from langchain.embeddings import GPT4AllEmbeddings
-from langchain.document_loaders import DirectoryLoader
+
+from langchain.document_loaders import (
+    DirectoryLoader,
+    PyPDFLoader,
+    TextLoader,
+    UnstructuredHTMLLoader,
+)
+
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores.chroma import Chroma
+
 from argparse import ArgumentParser
 from schemas.model import ChatModel
 from pydantic import ValidationError
+
 import json
 
 
 def load_chunks(documents_path: str):
     """load splitted documents from a directory"""
-    loader = DirectoryLoader(documents_path, glob="**/*.txt")
-    raw_documents = loader.load()
+    loaders = {
+        ".pdf": DirectoryLoader(
+            path=documents_path,
+            glob="**/*.pdf",
+            show_progress=True,
+            loader_cls=PyPDFLoader,
+        ),
+        ".txt": DirectoryLoader(
+            path=documents_path,
+            glob="**/*.txt",
+            show_progress=True,
+            loader_cls=TextLoader,
+        ),
+        ".html": DirectoryLoader(
+            path=documents_path,
+            glob="**/*.html",
+            show_progress=True,
+            loader_cls=UnstructuredHTMLLoader,
+        ),
+    }
+
+    raw_docs = []
+    for loader in loaders.values():
+        raw_docs.extend(loader.load())
+
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000)
-    docs = splitter.split_documents(raw_documents)
+    docs = splitter.split_documents(raw_docs)
 
     return docs
 
@@ -23,7 +55,7 @@ if __name__ == "__main__":
     parser.add_argument("--model", required=True, help="Path to model settings json.")
     args = parser.parse_args()
 
-    with open(args.model, "r") as f:
+    with open(args.model, "r", encoding="utf-8-sig") as f:
         model_arguments = json.load(f)
 
         try:
