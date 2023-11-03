@@ -6,3 +6,4 @@ documents/
 persist/
 venv/
 env/
+models/*.json
